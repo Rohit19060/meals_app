@@ -20,17 +20,6 @@ class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
   bool _loadedInitData = false;
 
   @override
-  void initState() {
-    super.initState();
-  }
-
-  void _removeMeal(String mealId) {
-    setState(() {
-      displayMeals.removeWhere((element) => mealId == element.id);
-    });
-  }
-
-  @override
   void didChangeDependencies() {
     super.didChangeDependencies();
     if (!_loadedInitData) {

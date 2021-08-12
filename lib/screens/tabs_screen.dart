@@ -1,45 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:meals_app/models/meal.dart';
-import 'package:meals_app/widgets/main_drawer.dart';
+import '../models/meal.dart';
+import '../widgets/main_drawer.dart';
 import 'favorites_screen.dart';
 import 'categories_screen.dart';
 
-// class TabScreen extends StatefulWidget {
-//   const TabScreen({Key? key}) : super(key: key);
-
-//   @override
-//   _TabScreenState createState() => _TabScreenState();
-// }
-
-// class _TabScreenState extends State<TabScreen> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return DefaultTabController(
-//       length: 2,
-// // initialIndex: 1,
-//       child: Scaffold(
-//         appBar: AppBar(
-//           title: Text("Meals"),
-//           bottom: TabBar(
-//             tabs: [
-//               Tab(
-//                 icon: Icon(Icons.category),
-//                 text: "Categories",
-//               ),
-//               Tab(
-//                 icon: Icon(Icons.star),
-//                 text: "Favorites",
-//               ),
-//             ],
-//           ),
-//         ),
-//         body: TabBarView(
-//           children: [CategoriesScreen(), FavoritesScreen()],
-//         ),
-//       ),
-//     );
-//   }
-// }
 class TabScreen extends StatefulWidget {
   final List<Meal> favoritesMeals;
   const TabScreen({required this.favoritesMeals, Key? key}) : super(key: key);
@@ -90,7 +54,6 @@ class _TabScreenState extends State<TabScreen> {
         currentIndex: _selectedPageIndex,
         unselectedIconTheme: IconThemeData(color: Colors.white),
         unselectedLabelStyle: TextStyle(color: Colors.white),
-        // type: BottomNavigationBarType.shifting,
         items: [
           BottomNavigationBarItem(
             backgroundColor: Theme.of(context).primaryColor,
