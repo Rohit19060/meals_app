@@ -11,7 +11,7 @@ class MealDetailScreen extends StatelessWidget {
 
   Widget buildSectionTitle(BuildContext context, String text) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 10),
+      margin: const EdgeInsets.symmetric(vertical: 10),
       child: Text(
         text,
         style: Theme.of(context).textTheme.bodyText1,
@@ -23,8 +23,8 @@ class MealDetailScreen extends StatelessWidget {
     return Container(
         height: 200,
         width: 350,
-        padding: EdgeInsets.all(10),
-        margin: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
+        margin: const EdgeInsets.all(10),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(15),
@@ -37,15 +37,15 @@ class MealDetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final mealdId = ModalRoute.of(context)?.settings.arguments as String;
     final selectedMeal =
-        DUMMY_MEALS.firstWhere((element) => element.id == mealdId);
+        dummyMeals.firstWhere((element) => element.id == mealdId);
     return Scaffold(
       appBar: AppBar(
-        title: Text('${selectedMeal.title}'),
+        title: Text(selectedMeal.title),
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
+            SizedBox(
                 height: 300,
                 width: double.infinity,
                 child: Image.network(
@@ -56,7 +56,6 @@ class MealDetailScreen extends StatelessWidget {
             buildContainer(
               ListView.builder(
                 itemBuilder: (ctx, index) => Card(
-                  color: Theme.of(context).accentColor,
                   child: Padding(
                     padding:
                         const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
@@ -77,7 +76,7 @@ class MealDetailScreen extends StatelessWidget {
                       ),
                       title: Text(selectedMeal.steps[index]),
                     ),
-                    Divider()
+                    const Divider()
                   ],
                 ),
                 itemCount: selectedMeal.steps.length,

@@ -15,7 +15,7 @@ class MainDrawer extends StatelessWidget {
       ),
       title: Text(
         title,
-        style: TextStyle(
+        style: const TextStyle(
             fontFamily: "RobotoCondensed",
             fontSize: 24,
             fontWeight: FontWeight.bold),
@@ -34,9 +34,8 @@ class MainDrawer extends StatelessWidget {
           Container(
             height: 120,
             width: double.infinity,
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             alignment: Alignment.centerLeft,
-            color: Theme.of(context).accentColor,
             child: Text(
               "Cooking Up!",
               style: TextStyle(
@@ -45,7 +44,7 @@ class MainDrawer extends StatelessWidget {
                   color: Theme.of(context).primaryColor),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           buildListTile(

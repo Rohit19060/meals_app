@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../models/meal.dart';
 import '../screens/meal_detail_screen.dart';
 
@@ -10,21 +11,23 @@ class MealItem extends StatelessWidget {
   final Complexity complexity;
   final Affordability affordability;
 
-  MealItem(
-      {required this.id,
+  const MealItem(
+      {Key? key,
+      required this.id,
       required this.title,
       required this.imageUrl,
       required this.duration,
       required this.complexity,
-      required this.affordability});
+      required this.affordability})
+      : super(key: key);
 
   String get complexityTest {
     switch (complexity) {
-      case Complexity.Simple:
+      case Complexity.simple:
         return 'Simple';
-      case Complexity.Challenging:
+      case Complexity.challenging:
         return 'Challenging';
-      case Complexity.Hard:
+      case Complexity.hard:
         return 'Hard';
       default:
         return 'Unknown';
@@ -33,11 +36,11 @@ class MealItem extends StatelessWidget {
 
   String get affordabilityTest {
     switch (affordability) {
-      case Affordability.Affordable:
+      case Affordability.affordable:
         return 'Affordable';
-      case Affordability.Luxurious:
+      case Affordability.luxurious:
         return 'Luxurious';
-      case Affordability.Pricey:
+      case Affordability.pricey:
         return 'Pricey';
       default:
         return 'Unknown';
@@ -63,13 +66,13 @@ class MealItem extends StatelessWidget {
           borderRadius: BorderRadius.circular(15),
         ),
         elevation: 4,
-        margin: EdgeInsets.all(10),
+        margin: const EdgeInsets.all(10),
         child: Column(
           children: [
             Stack(
               children: [
                 ClipRRect(
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(15),
                     topRight: Radius.circular(15),
                   ),
@@ -84,12 +87,13 @@ class MealItem extends StatelessWidget {
                   bottom: 20,
                   right: 10,
                   child: Container(
-                    padding: EdgeInsets.symmetric(vertical: 5, horizontal: 20),
+                    padding:
+                        const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
                     width: 300,
                     color: Colors.black54,
                     child: Text(
                       title,
-                      style: TextStyle(fontSize: 26, color: Colors.white),
+                      style: const TextStyle(fontSize: 26, color: Colors.white),
                       softWrap: true,
                       overflow: TextOverflow.fade,
                     ),
@@ -104,8 +108,8 @@ class MealItem extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      Icon(Icons.schedule),
-                      SizedBox(
+                      const Icon(Icons.schedule),
+                      const SizedBox(
                         width: 6,
                       ),
                       Text('$duration min'),
@@ -113,8 +117,8 @@ class MealItem extends StatelessWidget {
                   ),
                   Row(
                     children: [
-                      Icon(Icons.work),
-                      SizedBox(
+                      const Icon(Icons.work),
+                      const SizedBox(
                         width: 6,
                       ),
                       Text(complexityTest),
@@ -122,8 +126,8 @@ class MealItem extends StatelessWidget {
                   ),
                   Row(
                     children: [
-                      Icon(Icons.attach_money),
-                      SizedBox(
+                      const Icon(Icons.attach_money),
+                      const SizedBox(
                         width: 6,
                       ),
                       Text(affordabilityTest),

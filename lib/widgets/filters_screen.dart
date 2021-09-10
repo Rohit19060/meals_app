@@ -39,7 +39,6 @@ class _FiltersScreenState extends State<FiltersScreen> {
       value: currentValue,
       subtitle: Text(description),
       onChanged: (value) {
-        print(value);
         updateValue(value);
       },
       title: Text(title),
@@ -50,7 +49,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Your Filters'),
+        title: const Text('Your Filters'),
         actions: [
           IconButton(
               onPressed: () {
@@ -61,14 +60,14 @@ class _FiltersScreenState extends State<FiltersScreen> {
                   "vegetarian": _vegetarian
                 });
               },
-              icon: Icon(Icons.save))
+              icon: const Icon(Icons.save))
         ],
       ),
-      drawer: MainDrawer(),
+      drawer: const MainDrawer(),
       body: Column(
         children: [
           Container(
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             child: Text(
               "Adjust your meal selection",
               style: Theme.of(context).textTheme.bodyText1,
@@ -81,12 +80,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
                   title: "Gluten Free",
                   description: "Only Include Gluten free meals",
                   currentValue: _glutenFree,
-                  updateValue: (newvalue) {
-                    setState(() {
-                      print(newvalue);
-                      _glutenFree = newvalue;
-                    });
-                  }),
+                  updateValue: (newvalue) {}),
               _buildSwtich(
                   title: "Lactos Free",
                   description: "Only Include Lactos free meals",

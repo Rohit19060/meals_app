@@ -2,15 +2,17 @@ import 'package:flutter/material.dart';
 
 import './dummy_data.dart';
 import './models/meal.dart';
-import './screens/tabs_screen.dart';
-import './widgets/filters_screen.dart';
-import './screens/meal_detail_screen.dart';
 import './screens/categories_screen.dart';
 import './screens/category_meals_screen.dart';
+import './screens/meal_detail_screen.dart';
+import './screens/tabs_screen.dart';
+import './widgets/filters_screen.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   _MyAppState createState() => _MyAppState();
 }
@@ -23,15 +25,14 @@ class _MyAppState extends State<MyApp> {
     "vegetarian": false
   };
 
-  List<Meal> _availableMeals = DUMMY_MEALS;
-  List<Meal> _favoritesMeals = [];
+  List<Meal> _availableMeals = dummyMeals;
+  final List<Meal> _favoritesMeals = [];
 
   void _setFilters(Map<String, bool> filters) {
-    print(filters);
     setState(() {
       _filters = filters;
 
-      _availableMeals = DUMMY_MEALS.where((e) {
+      _availableMeals = dummyMeals.where((e) {
         if (_filters["gluten"]! && !e.isGlutenFree) {
           return false;
         }
@@ -57,7 +58,7 @@ class _MyAppState extends State<MyApp> {
         _favoritesMeals.removeAt(existingIndex);
       } else {
         _favoritesMeals
-            .add(DUMMY_MEALS.firstWhere((element) => mealId == element.id));
+            .add(dummyMeals.firstWhere((element) => mealId == element.id));
       }
     });
   }
@@ -72,17 +73,16 @@ class _MyAppState extends State<MyApp> {
       title: "DeliMeals",
       theme: ThemeData(
         primarySwatch: Colors.pink,
-        accentColor: Colors.amber,
-        canvasColor: Color.fromRGBO(255, 254, 227, 1),
+        canvasColor: const Color.fromRGBO(255, 254, 227, 1),
         fontFamily: "Raleway",
         textTheme: ThemeData.light().textTheme.copyWith(
-              bodyText1: TextStyle(
+              bodyText1: const TextStyle(
                 color: Color.fromRGBO(20, 51, 51, 1),
               ),
-              bodyText2: TextStyle(
+              bodyText2: const TextStyle(
                 color: Color.fromRGBO(20, 51, 51, 1),
               ),
-              headline1: TextStyle(
+              headline1: const TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
@@ -109,7 +109,7 @@ class _MyAppState extends State<MyApp> {
       //   return MaterialPageRoute(builder: (ctx) => CategoriesScreen());
       // },
       onUnknownRoute: (settings) => MaterialPageRoute(
-        builder: (ctx) => CategoriesScreen(),
+        builder: (ctx) => const CategoriesScreen(),
       ),
     );
   }

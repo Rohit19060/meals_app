@@ -28,7 +28,7 @@ class _TabScreenState extends State<TabScreen> {
     super.initState();
 
     _pages = [
-      {"page": CategoriesScreen(), "title": "Categories"},
+      {"page": const CategoriesScreen(), "title": "Categories"},
       {
         "page": FavoritesScreen(favoriteMeals: widget.favoritesMeals),
         "title": "Your Favorite"
@@ -42,27 +42,24 @@ class _TabScreenState extends State<TabScreen> {
       appBar: AppBar(
         title: Text(_pages[_selectedPageIndex]["title"] as String),
       ),
-      drawer: MainDrawer(),
+      drawer: const MainDrawer(),
       body: _pages[_selectedPageIndex]["page"] as Widget,
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Theme.of(context).primaryColor,
         onTap: _selectedPage,
-        selectedItemColor: Theme.of(context).accentColor,
         unselectedItemColor: Colors.white,
-        selectedIconTheme: IconThemeData(color: Theme.of(context).accentColor),
-        selectedLabelStyle: TextStyle(color: Theme.of(context).accentColor),
         currentIndex: _selectedPageIndex,
-        unselectedIconTheme: IconThemeData(color: Colors.white),
-        unselectedLabelStyle: TextStyle(color: Colors.white),
+        unselectedIconTheme: const IconThemeData(color: Colors.white),
+        unselectedLabelStyle: const TextStyle(color: Colors.white),
         items: [
           BottomNavigationBarItem(
             backgroundColor: Theme.of(context).primaryColor,
-            icon: Icon(Icons.category),
+            icon: const Icon(Icons.category),
             label: "Categories",
           ),
           BottomNavigationBarItem(
             backgroundColor: Theme.of(context).primaryColor,
-            icon: Icon(Icons.star),
+            icon: const Icon(Icons.star),
             label: "Favorites",
           ),
         ],
