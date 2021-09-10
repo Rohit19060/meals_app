@@ -38,7 +38,6 @@
 <p align="center">
 <img src="./assets/images/flutter_01.png" alt="Meals App"/>
 <img src="./assets/images/flutter_02.png" alt="Meals App 2"/>
-<img src="./assets/images/flutter_02.png" alt="Meals App 3"/>
 </p>
 
 <h2 align="center">🌐 Links 🌐</h2>
